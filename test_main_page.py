@@ -1,5 +1,6 @@
 from .pages.main_page import MainPage
 from .pages.login_page import LoginPage
+
 # link = "http://selenium1py.pythonanywhere.com/"
 
 
@@ -26,3 +27,5 @@ def test_login_page_forms(browser):
     page.should_be_login_url()
     page.should_be_login_form()
     page.should_be_register_form()
+
+
