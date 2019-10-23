@@ -16,3 +16,4 @@ class ProductPageLocators():
     NAME_IN_ITEM_PLACEHOLDER = (By.CSS_SELECTOR, "div#content_inner h1")
     PRICE_IN_CART = (By.CSS_SELECTOR, "div.alertinner > p > strong")
     PRICE_IN_ITEM_PLACEHOLDER = (By.CSS_SELECTOR, "p.price_color")
+    PRICE_IN_MINI_CART = (By.CSS_SELECTOR, "div.basket-mini > strong")

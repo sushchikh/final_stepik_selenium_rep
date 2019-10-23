@@ -28,7 +28,7 @@ class AddToBasket(BasePage):
             alert.accept()
         except NoAlertPresentException:
             print("No second alert presented")
-        sleep(10)
+        # sleep(3)
 
     def check_name_and_price(self):
         name_in_cart = self.browser.find_element(*ProductPageLocators.NAME_IN_CART).text
@@ -41,4 +41,10 @@ class AddToBasket(BasePage):
         print('цена в корзине:', price_in_cart)
         price_in_item_placeholder = self.browser.find_element(*ProductPageLocators.PRICE_IN_ITEM_PLACEHOLDER).text
         print('цена товара в описании: ', price_in_item_placeholder)
-        assert  price_in_item_placeholder == price_in_cart, "price in cart != price in item placeholder"
+        price_in_mini_cart = self.browser.find_element(*ProductPageLocators.PRICE_IN_MINI_CART).text.split(':')[1]
+        print('цена в мини-корзине:', price_in_mini_cart)
+
+        # поскольку цена на сайте указана три раза (в описании товара, в мини-корзине и в корзине посередине страницы,
+        # поэтому сравниваю их все)
+        assert  price_in_item_placeholder == price_in_cart == price_in_mini_cart, "price in cart != price in item placeholder"
+
